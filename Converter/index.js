@@ -3,7 +3,7 @@ const fs = require('fs');
 
 async function processLineByLine() {
 	const fileStream = fs.createReadStream('./baratian.tab');
-	const xml = fs.createWriteStream('./Armenian.xml', {});
+	const xml = fs.createWriteStream('./MyDictionary.xml', {});
 	const rl = readline.createInterface({
 		input: fileStream,
 		crlfDelay: Infinity
