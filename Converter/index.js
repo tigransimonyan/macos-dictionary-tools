@@ -37,7 +37,7 @@ async function processLineByLine() {
 		xml.write(str);
 		index++;
 	}
-	xml.end(`	</d:dictionary>`);
+	xml.end(`</d:dictionary>`);
 }
 
 processLineByLine()
