@@ -10,10 +10,11 @@ async function processLineByLine() {
 	});
 	xml.write(`<?xml version="1.0" encoding="UTF-8"?>`);
 	xml.write(`<d:dictionary xmlns="http://www.w3.org/1999/xhtml" xmlns:d="http://www.apple.com/DTDs/DictionaryService-1.0.rng">`);
+	
+	const pattern = /(?<a>[^\[]+)(?<b>\[[^[]+\])(?<c>.+)/;
 	let index = 0;
+	
 	for await (const line of rl) {
-		const pattern = /(?<a>[^\[]+)(?<b>\[[^[]+\])(?<c>.+)/;
-
 		const { groups } = line.match(pattern);
 		const transliteration = groups.b.trim().replace(/\[|\]/g, '');
 		const words = groups.a.replace(/\s|\d/g, '');
